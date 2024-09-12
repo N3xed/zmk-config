@@ -9,14 +9,16 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-&mt { tapping-term-ms = <140>; };
+&mt { tapping-term-ms = <150>; };
+
+&caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE MINUS>; };
 
 / {
     behaviors {
         ae_dollar: ae_dollar {
             compatible = "zmk,behavior-mod-morph";
             label = "AE_DOLLAR";
-            bindings = <&kp DE_A_UMLAUT>, <&kp DE_DOLLAR>;
+            bindings = <&kp DE_DOLLAR>, <&kp DE_A_UMLAUT>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -129,24 +131,6 @@
             #binding-cells = <0>;
             mods = <(MOD_LALT)>;
         };
-
-        shift_caps_word: shift_caps_word {
-            compatible = "zmk,behavior-hold-tap";
-            label = "SHIFT_CAPS_WORD";
-            bindings = <&kp>, <&caps_word>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <140>;
-        };
-
-        p_ue: p_ue {
-            compatible = "zmk,behavior-mod-morph";
-            label = "P_UE";
-            bindings = <&kp DE_P>, <&kp DE_U_UMLAUT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RALT)>;
-        };
     };
 
     keymap {
@@ -161,10 +145,10 @@
 
             display-name = "Base";
             bindings = <
-&kp TAB                        &kp Q     &kp W  &kp E     &kp R  &kp T        &kp DE_Z  &kp U  &kp I         &kp O       &kp P            &kp BSPC
-&kp LCTRL                      &kp A     &kp S  &kp D     &kp F  &kp G        &kp H     &kp J  &kp K         &kp L       &kp DE_O_UMLAUT  &ae_dollar
-&shift_caps_word LEFT_SHIFT 0  &kp DE_Y  &kp X  &kp C     &kp V  &kp B        &kp N     &kp M  &kp DE_COMMA  &kp DE_DOT  &kp DE_MINUS     &mt RSHIFT ESC
-                                                &kp LGUI  &mo 2  &kp SPACE    &kp RET   &mo 1  &kp LEFT_ALT
+&kp TAB         &kp Q     &kp W  &kp E     &kp R  &kp T        &kp DE_Z  &kp U  &kp I         &kp O       &kp P            &kp BSPC
+&kp LCTRL       &kp A     &kp S  &kp D     &kp F  &kp G        &kp H     &kp J  &kp K         &kp L       &kp DE_O_UMLAUT  &ae_dollar
+&kp LEFT_SHIFT  &kp DE_Y  &kp X  &kp C     &kp V  &kp B        &kp N     &kp M  &kp DE_COMMA  &kp DE_DOT  &kp DE_MINUS     &mt RSHIFT ESC
+                                 &kp LGUI  &mo 2  &kp SPACE    &kp RET   &mo 1  &kp LEFT_ALT
             >;
         };
 
@@ -177,10 +161,10 @@
 
             display-name = "Lower";
             bindings = <
-&sect_f1            &n1_f2  &n2_f3  &n3_f4      &n4_f5      &n5_f6        &n6_f7    &n7_f8    &n8_f9    &n9_f10    &n0_f11          &bs_f12
-&kp LEFT_CONTROL    &trans  &trans  &trans      &trans      &trans        &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &kp DE_U_UMLAUT  &kp DELETE
-&mt LSHFT CAPSLOCK  &trans  &trans  &bt BT_PRV  &bt BT_NXT  &bt BT_CLR    &kp HOME  &trans    &trans    &kp END    &trans           &trans
-                                    &kp LGUI    &trans      &kp SPACE     &kp RET   &trans    &kp RALT
+&sect_f1          &n1_f2        &n2_f3      &n3_f4      &n4_f5      &n5_f6        &n6_f7    &n7_f8    &n8_f9    &n9_f10    &n0_f11          &bs_f12
+&kp LEFT_CONTROL  &kp CAPSLOCK  &caps_word  &trans      &trans      &trans        &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &kp DE_U_UMLAUT  &kp DELETE
+&kp LSHFT         &trans        &trans      &bt BT_PRV  &bt BT_NXT  &bt BT_CLR    &kp HOME  &trans    &trans    &kp END    &trans           &trans
+                                            &kp LGUI    &trans      &kp SPACE     &kp RET   &trans    &kp RALT
             >;
         };
 
@@ -193,10 +177,10 @@
 
             display-name = "Raise";
             bindings = <
-&kp DE_SECTION           &trans       &kp DE_AT             &kp DE_HASH   &kp DE_BACKSLASH  &trans            &kp ESC           &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_QUESTION  &kp DE_CARET         &kp BSPC
-&kp LEFT_CONTROL         &kp DE_PLUS  &kp DE_DOUBLE_QUOTES  &kp DE_ASTRK  &kp LS(DE_N4)     &kp DE_PERCENT    &kp DE_SLASH      &kp LS(DE_U_UMLAUT)      &kp LS(DE_UMLAUT)         &kp DE_EQUAL     &kp DE_TILDE         &kp DE_GRAVE
-&mt LEFT_SHIFT CAPSLOCK  &trans       &kp DE_LT             &kp DE_GT     &trans            &trans            &kp DE_C_CEDILLA  &kp LS(DE_A_UMLAUT)      &kp LS(DE_DOLLAR)         &kp DE_UMLAUT    &kp DE_SINGLE_QUOTE  &kp RIGHT_SHIFT
-                                                            &kp LGUI      &trans            &kp SPACE         &kp RET           &trans                   &kp RALT
+&kp DE_SECTION    &trans       &kp DE_AT             &kp DE_HASH   &kp DE_BACKSLASH  &trans            &kp ESC           &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_QUESTION  &kp DE_CARET         &kp BSPC
+&kp LEFT_CONTROL  &kp DE_PLUS  &kp DE_DOUBLE_QUOTES  &kp DE_ASTRK  &kp LS(DE_N4)     &kp DE_PERCENT    &kp DE_SLASH      &kp LS(DE_U_UMLAUT)      &kp LS(DE_UMLAUT)         &kp DE_EQUAL     &kp DE_TILDE         &kp DE_GRAVE
+&kp LEFT_SHIFT    &trans       &kp DE_LT             &kp DE_GT     &trans            &trans            &kp DE_C_CEDILLA  &kp LS(DE_A_UMLAUT)      &kp LS(DE_DOLLAR)         &kp DE_UMLAUT    &kp DE_SINGLE_QUOTE  &kp RIGHT_SHIFT
+                                                     &kp LGUI      &trans            &kp SPACE         &kp RET           &trans                   &kp RALT
             >;
         };
     };
