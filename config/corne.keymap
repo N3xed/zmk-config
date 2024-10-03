@@ -200,8 +200,8 @@
             bindings = <
 &kp TAB           &kp DE_SECT  &kp DE_AT             &kp DE_HASH   &kp DE_BACKSLASH  &trans            &kp ESC           &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_QUESTION  &kp DE_CARET         &kp BSPC
 &kp LEFT_CONTROL  &kp DE_PLUS  &kp DE_DOUBLE_QUOTES  &kp DE_ASTRK  &kp LS(DE_N4)     &kp DE_PERCENT    &kp DE_SLASH      &kp LS(DE_A_UMLAUT)      &kp LS(DE_DOLLAR)         &kp DE_EQUAL     &kp DE_TILDE         &kp DE_GRAVE
-&kp LEFT_SHIFT    &trans       &kp DE_LT             &kp DE_GT     &trans            &trans            &kp DE_C_CEDILLA  &kp LS(DE_U_UMLAUT)      &kp LS(DE_UMLAUT)         &kp DE_UMLAUT    &kp DE_SINGLE_QUOTE  &kp RIGHT_SHIFT
-                                                     &kp LGUI      &trans            &kp SPACE         &kp RET           &trans                   &kp RALT
+&kp LEFT_SHIFT    &none        &kp DE_LT             &kp DE_GT     &none             &none             &kp DE_C_CEDILLA  &kp LS(DE_U_UMLAUT)      &kp LS(DE_UMLAUT)         &kp DE_UMLAUT    &kp DE_SINGLE_QUOTE  &kp RIGHT_SHIFT
+                                                     &trans        &trans            &kp SPACE         &kp RET           &trans                   &kp RALT
             >;
         };
     };
