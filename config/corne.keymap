@@ -11,7 +11,10 @@
 
 &mt { tapping-term-ms = <150>; };
 
-&caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE MINUS>; };
+&caps_word {
+    continue-list = <BACKSPACE DELETE SLASH QUESTION>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+};
 
 / {
     behaviors {
@@ -30,7 +33,7 @@
             bindings = <&kp DE_N1>, <&kp F2>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         n2_f3: n2_f3 {
@@ -39,7 +42,7 @@
             bindings = <&kp DE_N2>, <&kp F3>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         n3_f4: n3_f4 {
@@ -48,7 +51,7 @@
             bindings = <&kp DE_N3>, <&kp F3>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         n4_f5: n4_f5 {
@@ -57,7 +60,7 @@
             bindings = <&kp DE_N4>, <&kp F5>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         n5_f6: n5_f6 {
@@ -66,7 +69,7 @@
             bindings = <&kp DE_N5>, <&kp F6>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         n6_f7: n6_f7 {
@@ -75,7 +78,7 @@
             bindings = <&kp DE_N6>, <&kp F7>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         n7_f8: n7_f8 {
@@ -84,7 +87,7 @@
             bindings = <&kp DE_N7>, <&kp F7>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         n8_f9: n8_f9 {
@@ -93,7 +96,7 @@
             bindings = <&kp DE_N8>, <&kp F9>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         n9_f10: n9_f10 {
@@ -102,7 +105,7 @@
             bindings = <&kp DE_N9>, <&kp F10>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         n0_f11: n0_f11 {
@@ -111,7 +114,7 @@
             bindings = <&kp DE_N0>, <&kp F11>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         bs_f12: bs_f12 {
@@ -120,7 +123,7 @@
             bindings = <&kp BACKSPACE>, <&kp F12>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         sect_f1: sect_f1 {
@@ -129,7 +132,25 @@
             bindings = <&kp DE_SECT>, <&kp F1>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        BT_NXT_CLR: BT_NXT_CLR {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT_NXT_CLR";
+            bindings = <&bt BT_NXT>, <&bt BT_CLR>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT)>;
+        };
+
+        BT_PRV_OFF: BT_PRV_OFF {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT_PRV_OFF";
+            bindings = <&bt BT_PRV>, <&soft_off>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT)>;
         };
     };
 
@@ -159,12 +180,12 @@
             // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
-            display-name = "Lower";
+            display-name = "Numbers & Arrows";
             bindings = <
-&sect_f1          &n1_f2        &n2_f3      &n3_f4      &n4_f5      &n5_f6        &n6_f7    &n7_f8    &n8_f9    &n9_f10    &n0_f11          &bs_f12
-&kp LEFT_CONTROL  &kp CAPSLOCK  &caps_word  &trans      &trans      &trans        &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &kp DE_U_UMLAUT  &kp DELETE
-&kp LSHFT         &trans        &trans      &bt BT_PRV  &bt BT_NXT  &bt BT_CLR    &kp HOME  &trans    &trans    &kp END    &trans           &trans
-                                            &kp LGUI    &trans      &kp SPACE     &kp RET   &trans    &kp RALT
+&sect_f1          &n1_f2           &n2_f3      &n3_f4   &n4_f5       &n5_f6         &n6_f7       &n7_f8         &n8_f9    &n9_f10    &n0_f11          &bs_f12
+&kp LEFT_CONTROL  &kp CAPSLOCK     &caps_word  &trans   &trans       &trans         &kp LEFT     &kp DOWN       &kp UP    &kp RIGHT  &kp DE_U_UMLAUT  &kp DELETE
+&kp LSHFT         &kp PRINTSCREEN  &kp HOME    &kp END  &BT_PRV_OFF  &BT_NXT_CLR    &kp PAGE_UP  &kp PAGE_DOWN  &trans    &trans     &trans           &kp RIGHT_SHIFT
+                                               &trans   &trans       &kp SPACE      &kp RET      &trans         &kp RALT
             >;
         };
 
@@ -175,7 +196,7 @@
             // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
-            display-name = "Raise";
+            display-name = "Special Chars";
             bindings = <
 &kp TAB           &kp DE_SECT  &kp DE_AT             &kp DE_HASH   &kp DE_BACKSLASH  &trans            &kp ESC           &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_QUESTION  &kp DE_CARET         &kp BSPC
 &kp LEFT_CONTROL  &kp DE_PLUS  &kp DE_DOUBLE_QUOTES  &kp DE_ASTRK  &kp LS(DE_N4)     &kp DE_PERCENT    &kp DE_SLASH      &kp LS(DE_A_UMLAUT)      &kp LS(DE_DOLLAR)         &kp DE_EQUAL     &kp DE_TILDE         &kp DE_GRAVE
