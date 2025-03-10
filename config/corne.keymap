@@ -84,7 +84,7 @@
         n7_f8: n7_f8 {
             compatible = "zmk,behavior-mod-morph";
             label = "N7_F8";
-            bindings = <&kp DE_N7>, <&kp F7>;
+            bindings = <&kp DE_N7>, <&kp F8>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
