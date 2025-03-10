@@ -1,0 +1,1 @@
+add_subdirectory_ifdef(CONFIG_NICE_VIEW_CAPS_STATUS nice_view_caps_status/)

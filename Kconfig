@@ -1,0 +1,2 @@
+config NICE_VIEW_CAPS_STATUS
+    bool "Show a CAPS status widget in addition to the normal right-side nice_view widgets"

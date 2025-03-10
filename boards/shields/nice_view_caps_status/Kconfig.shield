@@ -1,2 +1,0 @@
-config SHIELD_NICE_VIEW_CAPS_STATUS
-    def_bool $(shields_list_contains,nice_view_caps_status)
