@@ -18,10 +18,10 @@
 
 / {
     behaviors {
-        ae_dollar: ae_dollar {
+        dollar_oe: dollar_oe {
             compatible = "zmk,behavior-mod-morph";
-            label = "AE_DOLLAR";
-            bindings = <&kp DE_DOLLAR>, <&kp DE_A_UMLAUT>;
+            label = "DOLLAR_OE";
+            bindings = <&kp DE_DOLLAR>, <&kp DE_O_UMLAUT>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -120,7 +120,7 @@
         bs_f12: bs_f12 {
             compatible = "zmk,behavior-mod-morph";
             label = "BS_F12";
-            bindings = <&kp BACKSPACE>, <&kp F12>;
+            bindings = <&bs_alt_del>, <&kp F12>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -135,22 +135,74 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        BT_NXT_CLR: BT_NXT_CLR {
+        BT_NXT_PREV_CLR: BT_NXT_PREV_CLR {
             compatible = "zmk,behavior-mod-morph";
-            label = "BT_NXT_CLR";
-            bindings = <&bt BT_NXT>, <&bt BT_CLR>;
+            label = "BT_NXT_PREV_CLR";
+            bindings = <&bt BT_NXT>, <&BT_PREV_CLR>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_RSFT|MOD_LSFT)>;
         };
 
-        BT_PRV_OFF: BT_PRV_OFF {
+        MUSIC_NXT_VOL: MUSIC_NXT_VOL {
             compatible = "zmk,behavior-mod-morph";
-            label = "BT_PRV_OFF";
-            bindings = <&bt BT_PRV>, <&soft_off>;
+            label = "MUSIC_NXT_VOL";
+            bindings = <&kp C_NEXT>, <&kp C_VOLUME_UP>;
 
             #binding-cells = <0>;
-            mods = <(MOD_RSFT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        esc_slash: esc_slash {
+            compatible = "zmk,behavior-mod-morph";
+            label = "ESC_SLASH";
+            bindings = <&kp ESC>, <&kp LS(DE_O_UMLAUT)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bs_alt_del: bs_alt_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BS_ALT_DEL";
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        LALT_RALT: LALT_RALT {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LALT_RALT";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT>, <&kp RIGHT_ALT>;
+        };
+
+        MUSIC_PRV_VOL: MUSIC_PRV_VOL {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MUSIC_PRV_VOL";
+            bindings = <&kp C_PREVIOUS>, <&kp C_VOLUME_DOWN>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        MUSIC_TGGL_VOL: MUSIC_TGGL_VOL {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MUSIC_TGGL_VOL";
+            bindings = <&kp C_PLAY_PAUSE>, <&kp C_MUTE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        BT_PREV_CLR: BT_PREV_CLR {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BT_PREV_CLR";
+            bindings = <&bt BT_PRV>, <&bt BT_CLR>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
         };
     };
 
@@ -166,10 +218,10 @@
 
             display-name = "Base";
             bindings = <
-&kp TAB         &kp Q     &kp W  &kp E     &kp R  &kp T        &kp DE_Z  &kp U  &kp I         &kp O       &kp P            &kp BSPC
-&kp LCTRL       &kp A     &kp S  &kp D     &kp F  &kp G        &kp H     &kp J  &kp K         &kp L       &kp DE_O_UMLAUT  &ae_dollar
-&kp LEFT_SHIFT  &kp DE_Y  &kp X  &kp C     &kp V  &kp B        &kp N     &kp M  &kp DE_COMMA  &kp DE_DOT  &kp DE_MINUS     &mt RSHIFT ESC
-                                 &kp LGUI  &mo 2  &kp SPACE    &kp RET   &mo 1  &kp LEFT_ALT
+&kp TAB         &kp Q     &kp W  &kp E     &kp R  &kp T        &kp DE_Z  &kp U  &kp I         &kp O       &kp P         &bs_alt_del
+&kp LCTRL       &kp A     &kp S  &kp D     &kp F  &kp G        &kp H     &kp J  &kp K         &kp L       &esc_slash    &kp DE_DOLLAR
+&kp LEFT_SHIFT  &kp DE_Y  &kp X  &kp C     &kp V  &kp B        &kp N     &kp M  &kp DE_COMMA  &kp DE_DOT  &kp DE_MINUS  &kp RSHIFT
+                                 &kp LGUI  &mo 2  &kp SPACE    &kp RET   &mo 1  &LALT_RALT
             >;
         };
 
@@ -182,10 +234,10 @@
 
             display-name = "Numbers & Arrows";
             bindings = <
-&sect_f1          &n1_f2           &n2_f3      &n3_f4   &n4_f5       &n5_f6         &n6_f7       &n7_f8         &n8_f9    &n9_f10    &n0_f11          &bs_f12
-&kp LEFT_CONTROL  &kp CAPSLOCK     &caps_word  &trans   &trans       &trans         &kp LEFT     &kp DOWN       &kp UP    &kp RIGHT  &kp DE_U_UMLAUT  &kp DELETE
-&kp LSHFT         &kp PRINTSCREEN  &kp HOME    &kp END  &BT_PRV_OFF  &BT_NXT_CLR    &kp PAGE_UP  &kp PAGE_DOWN  &trans    &trans     &trans           &kp RIGHT_SHIFT
-                                               &trans   &trans       &kp SPACE      &kp RET      &trans         &kp RALT
+&sect_f1          &n1_f2        &n2_f3          &n3_f4           &n4_f5          &n5_f6              &n6_f7    &n7_f8         &n8_f9       &n9_f10    &n0_f11          &bs_f12
+&kp LEFT_CONTROL  &kp CAPSLOCK  &caps_word      &trans           &trans          &trans              &kp LEFT  &kp DOWN       &kp UP       &kp RIGHT  &kp DE_O_UMLAUT  &kp DE_A_UMLAUT
+&kp LSHFT         &trans        &MUSIC_PRV_VOL  &MUSIC_TGGL_VOL  &MUSIC_NXT_VOL  &BT_NXT_PREV_CLR    &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP  &kp END    &kp DE_U_UMLAUT  &kp RIGHT_SHIFT
+                                                &trans           &trans          &kp SPACE           &kp RET   &trans         &trans
             >;
         };
 
@@ -198,10 +250,10 @@
 
             display-name = "Special Chars";
             bindings = <
-&kp TAB           &kp DE_SECT  &kp DE_AT             &kp DE_HASH   &kp DE_BACKSLASH  &trans            &kp ESC           &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_QUESTION  &kp DE_CARET         &kp BSPC
-&kp LEFT_CONTROL  &kp DE_PLUS  &kp DE_DOUBLE_QUOTES  &kp DE_ASTRK  &kp LS(DE_N4)     &kp DE_PERCENT    &kp DE_SLASH      &kp LS(DE_A_UMLAUT)      &kp LS(DE_DOLLAR)         &kp DE_EQUAL     &kp DE_TILDE         &kp DE_GRAVE
-&kp LEFT_SHIFT    &none        &kp DE_LT             &kp DE_GT     &none             &none             &kp DE_C_CEDILLA  &kp LS(DE_U_UMLAUT)      &kp LS(DE_UMLAUT)         &kp DE_UMLAUT    &kp DE_SINGLE_QUOTE  &kp RIGHT_SHIFT
-                                                     &trans        &trans            &kp SPACE         &kp RET           &trans                   &kp RALT
+&kp TAB           &kp DE_SECT  &kp DE_AT             &kp DE_HASH   &kp DE_BACKSLASH  &none              &none             &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_QUESTION  &kp DE_CARET         &bs_alt_del
+&kp LEFT_CONTROL  &kp DE_PLUS  &kp DE_DOUBLE_QUOTES  &kp DE_ASTRK  &kp LS(DE_N4)     &kp DE_PERCENT     &kp DE_SLASH      &kp LS(DE_A_UMLAUT)      &kp LS(DE_DOLLAR)         &kp DE_EQUAL     &kp DE_TILDE         &kp DE_GRAVE
+&kp LEFT_SHIFT    &none        &kp DE_LT             &kp DE_GT     &none             &kp PRINTSCREEN    &kp DE_C_CEDILLA  &kp LS(DE_U_UMLAUT)      &kp LS(DE_UMLAUT)         &kp DE_UMLAUT    &kp DE_SINGLE_QUOTE  &kp RIGHT_SHIFT
+                                                     &trans        &trans            &kp SPACE          &kp RET           &trans                   &trans
             >;
         };
     };
