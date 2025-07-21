@@ -18,15 +18,6 @@
 
 / {
     behaviors {
-        dollar_oe: dollar_oe {
-            compatible = "zmk,behavior-mod-morph";
-            label = "DOLLAR_OE";
-            bindings = <&kp DE_DOLLAR>, <&kp DE_O_UMLAUT>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         n1_f2: n1_f2 {
             compatible = "zmk,behavior-mod-morph";
             label = "N1_F2";
@@ -120,7 +111,7 @@
         bs_f12: bs_f12 {
             compatible = "zmk,behavior-mod-morph";
             label = "BS_F12";
-            bindings = <&bs_alt_del>, <&kp F12>;
+            bindings = <&BS_SFT_DEL>, <&kp F12>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -162,13 +153,13 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        bs_alt_del: bs_alt_del {
+        BS_SFT_DEL: BS_SFT_DEL {
             compatible = "zmk,behavior-mod-morph";
-            label = "BS_ALT_DEL";
+            label = "BS_SFT_DEL";
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         LALT_RALT: LALT_RALT {
@@ -204,6 +195,51 @@
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
         };
+
+        OE_SHFT_UE: OE_SHFT_UE {
+            compatible = "zmk,behavior-mod-morph";
+            label = "OE_SHFT_UE";
+            bindings = <&kp DE_O_UMLAUT>, <&kp DE_U_UMLAUT>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        LEFT_SFT_HOME: LEFT_SFT_HOME {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LEFT_SFT_HOME";
+            bindings = <&kp LEFT>, <&kp HOME>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        DWN_SFT_PGDWN: DWN_SFT_PGDWN {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DWN_SFT_PGDWN";
+            bindings = <&kp DOWN>, <&kp PAGE_DOWN>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        UP_SFT_PGUP: UP_SFT_PGUP {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UP_SFT_PGUP";
+            bindings = <&kp UP>, <&kp PAGE_UP>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        RGHT_SFT_END: RGHT_SFT_END {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RGHT_SFT_END";
+            bindings = <&kp RIGHT>, <&kp END>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
@@ -218,7 +254,7 @@
 
             display-name = "Base";
             bindings = <
-&kp TAB         &kp Q     &kp W  &kp E     &kp R  &kp T        &kp DE_Z  &kp U  &kp I         &kp O       &kp P         &bs_alt_del
+&kp TAB         &kp Q     &kp W  &kp E     &kp R  &kp T        &kp DE_Z  &kp U  &kp I         &kp O       &kp P         &BS_SFT_DEL
 &kp LCTRL       &kp A     &kp S  &kp D     &kp F  &kp G        &kp H     &kp J  &kp K         &kp L       &esc_slash    &kp DE_DOLLAR
 &kp LEFT_SHIFT  &kp DE_Y  &kp X  &kp C     &kp V  &kp B        &kp N     &kp M  &kp DE_COMMA  &kp DE_DOT  &kp DE_MINUS  &kp RSHIFT
                                  &kp LGUI  &mo 2  &kp SPACE    &kp RET   &mo 1  &LALT_RALT
@@ -234,10 +270,10 @@
 
             display-name = "Numbers & Arrows";
             bindings = <
-&sect_f1          &n1_f2        &n2_f3          &n3_f4           &n4_f5          &n5_f6              &n6_f7    &n7_f8         &n8_f9       &n9_f10    &n0_f11          &bs_f12
-&kp LEFT_CONTROL  &kp CAPSLOCK  &caps_word      &trans           &trans          &trans              &kp LEFT  &kp DOWN       &kp UP       &kp RIGHT  &kp DE_O_UMLAUT  &kp DE_A_UMLAUT
-&kp LSHFT         &trans        &MUSIC_PRV_VOL  &MUSIC_TGGL_VOL  &MUSIC_NXT_VOL  &BT_NXT_PREV_CLR    &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP  &kp END    &kp DE_U_UMLAUT  &kp RIGHT_SHIFT
-                                                &trans           &trans          &kp SPACE           &kp RET   &trans         &trans
+&sect_f1          &n1_f2        &n2_f3          &n3_f4           &n4_f5          &n5_f6              &n6_f7          &n7_f8          &n8_f9        &n9_f10        &n0_f11      &bs_f12
+&kp LEFT_CONTROL  &kp CAPSLOCK  &caps_word      &trans           &trans          &trans              &LEFT_SFT_HOME  &DWN_SFT_PGDWN  &UP_SFT_PGUP  &RGHT_SFT_END  &OE_SHFT_UE  &kp DE_A_UMLAUT
+&kp LSHFT         &trans        &MUSIC_PRV_VOL  &MUSIC_TGGL_VOL  &MUSIC_NXT_VOL  &BT_NXT_PREV_CLR    &trans          &trans          &trans        &trans         &trans       &kp RIGHT_SHIFT
+                                                &trans           &trans          &kp SPACE           &kp RET         &trans          &trans
             >;
         };
 
@@ -250,7 +286,7 @@
 
             display-name = "Special Chars";
             bindings = <
-&kp TAB           &kp DE_SECT  &kp DE_AT             &kp DE_HASH   &kp DE_BACKSLASH  &none              &none             &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_QUESTION  &kp DE_CARET         &bs_alt_del
+&kp TAB           &kp DE_SECT  &kp DE_AT             &kp DE_HASH   &kp DE_BACKSLASH  &none              &none             &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_QUESTION  &kp DE_CARET         &BS_SFT_DEL
 &kp LEFT_CONTROL  &kp DE_PLUS  &kp DE_DOUBLE_QUOTES  &kp DE_ASTRK  &kp LS(DE_N4)     &kp DE_PERCENT     &kp DE_SLASH      &kp LS(DE_A_UMLAUT)      &kp LS(DE_DOLLAR)         &kp DE_EQUAL     &kp DE_TILDE         &kp DE_GRAVE
 &kp LEFT_SHIFT    &none        &kp DE_LT             &kp DE_GT     &none             &kp PRINTSCREEN    &kp DE_C_CEDILLA  &kp LS(DE_U_UMLAUT)      &kp LS(DE_UMLAUT)         &kp DE_UMLAUT    &kp DE_SINGLE_QUOTE  &kp RIGHT_SHIFT
                                                      &trans        &trans            &kp SPACE          &kp RET           &trans                   &trans
