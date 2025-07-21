@@ -111,7 +111,7 @@
         bs_f12: bs_f12 {
             compatible = "zmk,behavior-mod-morph";
             label = "BS_F12";
-            bindings = <&BS_SFT_DEL>, <&kp F12>;
+            bindings = <&kp BACKSPACE>, <&kp F12>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
