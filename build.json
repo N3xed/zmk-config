@@ -1,0 +1,22 @@
+{
+    "corne": {
+        "left": {
+            "board": "nice_nano_v2",
+            "shield": "corne_left nice_view_adapter nice_view"
+        },
+        "right": {
+            "board": "nice_nano_v2",
+            "shield":"corne_right nice_view_adapter nice_view"
+        }
+    },
+    "aurora-corne": {
+        "left": {
+            "board": "sparkfun_pro_micro_rp2040",
+            "shield":"corne_left"
+        },
+        "right": {
+            "board": "sparkfun_pro_micro_rp2040",
+            "shield":"corne_left"
+        }
+    }
+}
