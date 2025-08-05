@@ -60,3 +60,12 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)  RC(2,6) RC(2,7) RC(2,8) RC(2,9)
     pinctrl-0 = <&uart0_default>;
     pinctrl-names = "default";
 };
+
+&gpio0 {
+    led_gpio: led_gpio {
+        gpio-hog;
+        gpios = <24 GPIO_ACTIVE_HIGH>;
+        output-high;
+        line-name = "led-control";
+    };
+};
