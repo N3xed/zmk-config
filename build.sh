@@ -52,6 +52,10 @@ while [[ $# -gt 0 ]]; do
       shift
       shift
       ;;
+    --usb-logging)
+      usb_log="-S zmk-usb-logging"
+      shift
+      ;;
     -p)
       pristine=-p
       shift
@@ -84,18 +88,26 @@ fi
 
 get_board=".\"$name\".$side.board"
 get_shield=".\"$name\".$side.shield"
+get_config=".\"$name\".config"
 if [ "$name" != "" ]; then
     board=$(jq "$get_board" -r -c "$cfg")
     shield+=$(jq "$get_shield" -r -c "$cfg")
+    config_dir=$(jq "$get_config" -r -c "$cfg")
 fi
 if [ "$board" = "" ]; then
     echo "No board specified, use the \`--name <cfg name>\` argument, or specify the board with --board."
     exit 1
 fi
 
+# Use default config directory if not specified in JSON
+if [ "$config_dir" = "" ] || [ "$config_dir" = "null" ]; then
+    config_dir="config"
+fi
+
 echo build_dir=$build_dir
 echo side=$side
 echo board=$board
 echo shield=$shield
+echo config_dir=$config_dir
 
-west build -d "$build_dir" -b $board $pristine  -- -DSHIELD="$shield" -DZMK_EXTRA_MODULES="$SCRIPT_DIR" -DZMK_CONFIG="$SCRIPT_DIR/config" $*
+west build -d "$build_dir" -b $board $pristine $usb_log  -- -DSHIELD="$shield" -DZMK_EXTRA_MODULES="$SCRIPT_DIR" -DZMK_CONFIG="$SCRIPT_DIR/$config_dir" $*

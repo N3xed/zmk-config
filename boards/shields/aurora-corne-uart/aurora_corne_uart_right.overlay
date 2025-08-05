@@ -1,0 +1,23 @@
+#include "aurora_corne_uart.dtsi"
+
+&default_transform {
+    col-offset = <6>;
+};
+
+&kscan0 {
+    row-gpios
+        = <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 0 (B1)
+        , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 1 (B3)
+        , <&gpio0 23 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 2 (B2)
+        , <&gpio0 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 3 (B6)
+        ;
+
+    col-gpios
+        = <&gpio0 9 GPIO_ACTIVE_HIGH>   // Col 5 (B5)
+        , <&gpio0 8 GPIO_ACTIVE_HIGH>   // Col 4 (B4)
+        , <&gpio0 7 GPIO_ACTIVE_HIGH>   // Col 3 (E6)
+        , <&gpio0 6 GPIO_ACTIVE_HIGH>   // Col 2 (D7)
+        , <&gpio0 5 GPIO_ACTIVE_HIGH>   // Col 1 (C6)
+        , <&gpio0 4 GPIO_ACTIVE_HIGH>   // Col 0 (D4)
+        ;
+};
