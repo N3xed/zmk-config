@@ -117,10 +117,10 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-        sect_f1: sect_f1 {
+        tab_f1: tab_f1 {
             compatible = "zmk,behavior-mod-morph";
-            label = "SECT_F1";
-            bindings = <&kp DE_SECT>, <&kp F1>;
+            label = "TAB_F1";
+            bindings = <&kp TAB>, <&kp F1>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -270,7 +270,7 @@
 
             display-name = "Numbers & Arrows";
             bindings = <
-&sect_f1          &n1_f2        &n2_f3          &n3_f4           &n4_f5          &n5_f6              &n6_f7          &n7_f8          &n8_f9        &n9_f10        &n0_f11      &bs_f12
+&tab_f1           &n1_f2        &n2_f3          &n3_f4           &n4_f5          &n5_f6              &n6_f7          &n7_f8          &n8_f9        &n9_f10        &n0_f11      &bs_f12
 &kp LEFT_CONTROL  &kp CAPSLOCK  &caps_word      &trans           &trans          &trans              &LEFT_SFT_HOME  &DWN_SFT_PGDWN  &UP_SFT_PGUP  &RGHT_SFT_END  &OE_SHFT_UE  &kp DE_A_UMLAUT
 &kp LSHFT         &trans        &MUSIC_PRV_VOL  &MUSIC_TGGL_VOL  &MUSIC_NXT_VOL  &BT_NXT_PREV_CLR    &trans          &trans          &trans        &trans         &trans       &kp RIGHT_SHIFT
                                                 &trans           &trans          &kp SPACE           &kp RET         &trans          &trans
