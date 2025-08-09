@@ -19,10 +19,10 @@ Configuration for my keyboards running [ZMK](https://github.com/zmkfirmware/zmk)
 
   In the end, `TX` on the left side should be connected to `RX` on the right side, and
   vice versa.
-  > [!IMPORTANT]
-  > Do not plug or unplug the TRRS cable while the splits are powered, this could cause
-  > irreparable damage to the microcontrollers (see also
-  > [this](https://zmk.dev/docs/features/split-keyboards#split-transports)).
+> [!WARNING]  
+> Do not plug or unplug the TRRS cable while the splits are powered, this could cause
+> irreparable damage to the microcontrollers (see also
+> [this](https://zmk.dev/docs/features/split-keyboards#split-transports)).
   
 ## Building Locally
 
