@@ -9,7 +9,10 @@ Arguments:
   --board <board>: Which board to build, defaults to the one specified in the config.
   --shield <shields>: Which shields to include, defaults to the shield specified in the config.
   --build-dir <build-dir>: The build dir, defaults to \`build/<side>\`.
+  --usb-logging: Enable USB logging.
   -p: Whether to clean before building (make a fresh build).
+  --all: Build all boards and sides which are enabled in the config (has priority over --name).
+  --ci: Print a JSON object per build for CI, with the name and side.
   --help: Print this help message.
 EOF
 )
@@ -60,7 +63,17 @@ while [[ $# -gt 0 ]]; do
       pristine=-p
       shift
       ;;
+    --all)
+      all=1
+      shift
+      ;;
+    --ci)
+      all=1
+      ci=1
+      shift
+      ;;
     *)
+      
       POSITIONAL_ARGS+=("$1") # save positional arg
       shift # past argument
       ;;
@@ -77,7 +90,11 @@ if [ "$side" = "" ]; then
     side="right"
 fi
 if [ "$build_dir" = "" ]; then
-    build_dir="${SCRIPT_DIR}/build/$side"
+    if [ "$all" = "1" ]; then
+        build_dir="${SCRIPT_DIR}/build"
+    else
+        build_dir="${SCRIPT_DIR}/build/$side"
+    fi
 fi
 if [ "$cfg" = "" ]; then
     cfg="$SCRIPT_DIR/build.json"
@@ -85,6 +102,28 @@ fi
 if [ "$shield" != "" ]; then
     shield+=" "
 fi
+
+if [ "$all" = "1" ]; then
+    if [ "$ci" != "1" ]; then
+        echo "Building all boards and sides which are enabled in the config..."
+    fi
+
+    jq -r 'to_entries | map(select(.value | type == "object" and .enabled == true)) | .[].key' "$cfg" | while read -r board_name; do
+        jq -r ".\"$board_name\" | keys[]" "$cfg" | while read -r side_name; do
+            if [ "$side_name" != "left" ] && [ "$side_name" != "right" ]; then
+                continue
+            fi
+            if [ "$ci" = "1" ]; then
+                echo {\"name\": \"$board_name\",\"side\": \"$side_name\"}
+            else
+                echo "Building $board_name on $side_name side"
+                "$SCRIPT_DIR/build.sh" --zmk-dir "$zmk_dir" --side "$side_name" --cfg "$cfg" --name "$board_name" --build-dir "$build_dir"/"$board_name"_"$side_name" -p
+            fi
+        done
+    done
+    exit 0
+fi
+
 
 get_board=".\"$name\".$side.board"
 get_shield=".\"$name\".$side.shield"

@@ -1,5 +1,6 @@
 {
     "corne": {
+        "enabled": true,
         "config": "config",
         "left": {
             "board": "nice_nano_v2",
@@ -11,6 +12,7 @@
         }
     },
     "aurora-corne": {
+        "enabled": true,
         "config": "config_aurora_corne_uart",
         "left": {
             "board": "sparkfun_pro_micro_rp2040",
