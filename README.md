@@ -51,3 +51,8 @@ Arguments:
   --help: Print this help message.
   --jq <jq>: Use a custom jq binary, defaults to `jq` in PATH.
 ```
+
+The build configuration can be passed verbatim, whereby the `--name` argument is not
+neede, or it be configured in [`build.json`](./build.json) (or another JSON file supplied
+with the `--cfg` argument).
+A specific configuration can be built by supplying the `--name` and `--side` arguments.
