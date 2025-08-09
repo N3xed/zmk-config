@@ -20,7 +20,6 @@
     behaviors {
         n1_f2: n1_f2 {
             compatible = "zmk,behavior-mod-morph";
-            label = "N1_F2";
             bindings = <&kp DE_N1>, <&kp F2>;
 
             #binding-cells = <0>;
@@ -29,7 +28,6 @@
 
         n2_f3: n2_f3 {
             compatible = "zmk,behavior-mod-morph";
-            label = "N2_F3";
             bindings = <&kp DE_N2>, <&kp F3>;
 
             #binding-cells = <0>;
@@ -38,7 +36,6 @@
 
         n3_f4: n3_f4 {
             compatible = "zmk,behavior-mod-morph";
-            label = "N3_F4";
             bindings = <&kp DE_N3>, <&kp F3>;
 
             #binding-cells = <0>;
@@ -47,7 +44,6 @@
 
         n4_f5: n4_f5 {
             compatible = "zmk,behavior-mod-morph";
-            label = "N4_F5";
             bindings = <&kp DE_N4>, <&kp F5>;
 
             #binding-cells = <0>;
@@ -56,7 +52,6 @@
 
         n5_f6: n5_f6 {
             compatible = "zmk,behavior-mod-morph";
-            label = "N5_F6";
             bindings = <&kp DE_N5>, <&kp F6>;
 
             #binding-cells = <0>;
@@ -65,7 +60,6 @@
 
         n6_f7: n6_f7 {
             compatible = "zmk,behavior-mod-morph";
-            label = "N6_F7";
             bindings = <&kp DE_N6>, <&kp F7>;
 
             #binding-cells = <0>;
@@ -74,7 +68,6 @@
 
         n7_f8: n7_f8 {
             compatible = "zmk,behavior-mod-morph";
-            label = "N7_F8";
             bindings = <&kp DE_N7>, <&kp F8>;
 
             #binding-cells = <0>;
@@ -83,7 +76,6 @@
 
         n8_f9: n8_f9 {
             compatible = "zmk,behavior-mod-morph";
-            label = "N8_F9";
             bindings = <&kp DE_N8>, <&kp F9>;
 
             #binding-cells = <0>;
@@ -92,7 +84,6 @@
 
         n9_f10: n9_f10 {
             compatible = "zmk,behavior-mod-morph";
-            label = "N9_F10";
             bindings = <&kp DE_N9>, <&kp F10>;
 
             #binding-cells = <0>;
@@ -101,7 +92,6 @@
 
         n0_f11: n0_f11 {
             compatible = "zmk,behavior-mod-morph";
-            label = "N0_F11";
             bindings = <&kp DE_N0>, <&kp F11>;
 
             #binding-cells = <0>;
@@ -110,7 +100,6 @@
 
         bs_f12: bs_f12 {
             compatible = "zmk,behavior-mod-morph";
-            label = "BS_F12";
             bindings = <&kp BACKSPACE>, <&kp F12>;
 
             #binding-cells = <0>;
@@ -119,7 +108,6 @@
 
         tab_f1: tab_f1 {
             compatible = "zmk,behavior-mod-morph";
-            label = "TAB_F1";
             bindings = <&kp TAB>, <&kp F1>;
 
             #binding-cells = <0>;
@@ -128,7 +116,6 @@
 
         BT_NXT_PREV_CLR: BT_NXT_PREV_CLR {
             compatible = "zmk,behavior-mod-morph";
-            label = "BT_NXT_PREV_CLR";
             bindings = <&bt BT_NXT>, <&BT_PREV_CLR>;
 
             #binding-cells = <0>;
@@ -137,7 +124,6 @@
 
         MUSIC_NXT_VOL: MUSIC_NXT_VOL {
             compatible = "zmk,behavior-mod-morph";
-            label = "MUSIC_NXT_VOL";
             bindings = <&kp C_NEXT>, <&kp C_VOLUME_UP>;
 
             #binding-cells = <0>;
@@ -146,7 +132,6 @@
 
         esc_slash: esc_slash {
             compatible = "zmk,behavior-mod-morph";
-            label = "ESC_SLASH";
             bindings = <&kp ESC>, <&kp LS(DE_O_UMLAUT)>;
 
             #binding-cells = <0>;
@@ -155,7 +140,6 @@
 
         BS_SFT_DEL: BS_SFT_DEL {
             compatible = "zmk,behavior-mod-morph";
-            label = "BS_SFT_DEL";
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
 
             #binding-cells = <0>;
@@ -164,14 +148,12 @@
 
         LALT_RALT: LALT_RALT {
             compatible = "zmk,behavior-tap-dance";
-            label = "LALT_RALT";
             #binding-cells = <0>;
             bindings = <&kp LEFT_ALT>, <&kp RIGHT_ALT>;
         };
 
         MUSIC_PRV_VOL: MUSIC_PRV_VOL {
             compatible = "zmk,behavior-mod-morph";
-            label = "MUSIC_PRV_VOL";
             bindings = <&kp C_PREVIOUS>, <&kp C_VOLUME_DOWN>;
 
             #binding-cells = <0>;
@@ -180,7 +162,6 @@
 
         MUSIC_TGGL_VOL: MUSIC_TGGL_VOL {
             compatible = "zmk,behavior-mod-morph";
-            label = "MUSIC_TGGL_VOL";
             bindings = <&kp C_PLAY_PAUSE>, <&kp C_MUTE>;
 
             #binding-cells = <0>;
@@ -189,7 +170,6 @@
 
         BT_PREV_CLR: BT_PREV_CLR {
             compatible = "zmk,behavior-mod-morph";
-            label = "BT_PREV_CLR";
             bindings = <&bt BT_PRV>, <&bt BT_CLR>;
 
             #binding-cells = <0>;
@@ -198,7 +178,6 @@
 
         OE_SHFT_UE: OE_SHFT_UE {
             compatible = "zmk,behavior-mod-morph";
-            label = "OE_SHFT_UE";
             bindings = <&kp DE_O_UMLAUT>, <&kp DE_U_UMLAUT>;
 
             #binding-cells = <0>;
@@ -207,7 +186,6 @@
 
         LEFT_SFT_HOME: LEFT_SFT_HOME {
             compatible = "zmk,behavior-mod-morph";
-            label = "LEFT_SFT_HOME";
             bindings = <&kp LEFT>, <&kp HOME>;
 
             #binding-cells = <0>;
@@ -216,7 +194,6 @@
 
         DWN_SFT_PGDWN: DWN_SFT_PGDWN {
             compatible = "zmk,behavior-mod-morph";
-            label = "DWN_SFT_PGDWN";
             bindings = <&kp DOWN>, <&kp PAGE_DOWN>;
 
             #binding-cells = <0>;
@@ -225,7 +202,6 @@
 
         UP_SFT_PGUP: UP_SFT_PGUP {
             compatible = "zmk,behavior-mod-morph";
-            label = "UP_SFT_PGUP";
             bindings = <&kp UP>, <&kp PAGE_UP>;
 
             #binding-cells = <0>;
@@ -234,7 +210,6 @@
 
         RGHT_SFT_END: RGHT_SFT_END {
             compatible = "zmk,behavior-mod-morph";
-            label = "RGHT_SFT_END";
             bindings = <&kp RIGHT>, <&kp END>;
 
             #binding-cells = <0>;
@@ -247,9 +222,9 @@
 
         default_layer {
             // -----------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Z  |  U   |  I  |  O  |  P        | BKSP/DEL |
+            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  | ESC/SLASH | $        |
+            // | SHFT |  Y  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  -        | SHIFT    |
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             display-name = "Base";
@@ -262,12 +237,6 @@
         };
 
         lower_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
             display-name = "Numbers & Arrows";
             bindings = <
 &tab_f1           &n1_f2        &n2_f3          &n3_f4           &n4_f5          &n5_f6              &n6_f7          &n7_f8          &n8_f9        &n9_f10        &n0_f11      &bs_f12
@@ -278,12 +247,6 @@
         };
 
         raise_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
             display-name = "Special Chars";
             bindings = <
 &kp TAB           &kp DE_SECT  &kp DE_AT             &kp DE_HASH   &kp DE_BACKSLASH  &none              &none             &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_QUESTION  &kp DE_CARET         &BS_SFT_DEL

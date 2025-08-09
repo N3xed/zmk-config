@@ -4,4 +4,4 @@
  * SPDX-License-Identifier: MIT
  */
 
-#include "../config/corne.keymap"
+#include "../corne.keymap"
