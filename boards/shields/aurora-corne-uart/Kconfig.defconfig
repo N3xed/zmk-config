@@ -1,0 +1,11 @@
+if SHIELD_AURORA_CORNE_UART_LEFT || SHIELD_AURORA_CORNE_UART_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_WIRED
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y if SHIELD_AURORA_CORNE_UART_LEFT
+endif
