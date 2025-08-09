@@ -42,10 +42,12 @@ Arguments:
   --name <cfg name>: The name of the keyboard in the config to build, optional.
   --board <board>: Which board to build, defaults to the one specified in the config.
   --shield <shields>: Which shields to include, defaults to the shield specified in the config.
+  --zmk-config <dir>: The directory of the zmk config, defaults to \`config\` or the one specified in the config.
   --build-dir <build-dir>: The build dir, defaults to `build/<side>`.
   --usb-logging: Enable USB logging.
   -p: Whether to clean before building (make a fresh build).
   --all: Build all boards and sides which are enabled in the config (has priority over --name).
   --ci: Print a JSON object per build for CI, with the name and side.
   --help: Print this help message.
+  --jq <jq>: Use a custom jq binary, defaults to `jq` in PATH.
 ```

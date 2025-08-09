@@ -1,6 +1,6 @@
 
 name: Build ZMK Keyboards
-on: [push, pull_request, workflow_dispatch]
+on: [push, workflow_dispatch]
 
 jobs:
   matrix:
@@ -14,7 +14,7 @@ jobs:
 
       - name: Fetch Build Matrix
         run: |
-          echo \{\"include\": $(./build.sh --all --ci | jq -scMj)\} >> $GITHUB_ENV
+          echo build_matrix=\{\"include\": $(./build.sh --all --ci | jq -scMj)\} >> $GITHUB_ENV
 
   build:
     runs-on: ubuntu-latest
@@ -58,7 +58,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache_name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-
+            
       - name: West Init
         working-directory: ${{ env.base_dir }}
         run: west init -l "${{ env.base_dir }}/config"
@@ -74,7 +74,7 @@ jobs:
       - name: West Build (${{ env.display_name }})
         working-directory: repo
         shell: sh -x {0}
-        run: ./build.sh --side "${{ matrix.side }}" --name "${{ matrix.name }}" --zmk-dir "${{ env.base_dir }}/zmk/app" --cfg "${{ env.base_dir }}/repo/build.json" --build-dir "${{ env.build_dir }}" -p
+        run: ./build.sh --side "${{ matrix.side }}" --zmk-dir "${{ env.base_dir }}/zmk/app" --zmk-config "${{ matrix.zmk_config }}" --board "${{ matrix.board }}" --shield "${{ matrix.shield }}" --build-dir "${{ env.build_dir }}" -p
 
       - name: ${{ env.display_name }} Kconfig file
         run: |
