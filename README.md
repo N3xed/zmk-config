@@ -42,7 +42,7 @@ Arguments:
   --name <cfg name>: The name of the keyboard in the config to build, optional.
   --board <board>: Which board to build, defaults to the one specified in the config.
   --shield <shields>: Which shields to include, defaults to the shield specified in the config.
-  --zmk-config <dir>: The directory of the zmk config, defaults to \`config\` or the one specified in the config.
+  --zmk-config <dir>: The directory of the zmk config, defaults to `config` or the one specified in the config.
   --build-dir <build-dir>: The build dir, defaults to `build/<side>`.
   --usb-logging: Enable USB logging.
   -p: Whether to clean before building (make a fresh build).
@@ -52,7 +52,7 @@ Arguments:
   --jq <jq>: Use a custom jq binary, defaults to `jq` in PATH.
 ```
 
-The build configuration can be passed verbatim, whereby the `--name` argument is not
-neede, or it be configured in [`build.json`](./build.json) (or another JSON file supplied
-with the `--cfg` argument).
-A specific configuration can be built by supplying the `--name` and `--side` arguments.
+The build configuration can be passed verbatim with the `--board` and `--shield`
+arguments, or it can be configured in [`build.json`](./build.json) (or another JSON file
+supplied with the `--cfg` argument). A specific configuration in the supplied config can
+be built by supplying the `--name` and `--side` arguments.
