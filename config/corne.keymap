@@ -36,7 +36,7 @@
 
         n3_f4: n3_f4 {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&kp DE_N3>, <&kp F3>;
+            bindings = <&kp DE_N3>, <&kp F4>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
